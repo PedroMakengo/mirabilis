@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="pt" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAI – Mirabilis Alliance Institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- ═══════ MOBILE OVERLAY ═══════ -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <button class="mobile-close" id="mobileCloseBtn">✕</button>
+    <a href="#" class="active">Home</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#areas">Áreas</a>
+    <a href="#solucoes">Soluções</a>
+    <a href="#">Metodologias</a>
+    <a href="#">Parceiros</a>
+    <a href="#">Contactos</a>
+    <a href="#"
+      style="margin-top:20px;background:var(--brand-primary);color:var(--neutral-900);border-radius:3px;font-size:13px;font-weight:700">Inscrever-se</a>
+  </div>
+
+  <!-- ═══════ NAV ═══════ -->
+  <nav class="nav" id="mainNav">
+    <a href="#" class="nav-logo">
+      <div class="logo-mark"><span>M</span></div>
+      <div class="logo-text">
+        <span class="logo-name" translate="no">MAI</span>
+        <span class="logo-tagline" translate="no">Mirabilis Alliance Institute</span>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#areas">Áreas</a></li>
+      <li><a href="#solucoes">Soluções</a></li>
+      <li><a href="#solucoes">Metodologias</a></li>
+      <li><a href="#">Parceiros</a></li>
+      <li><a href="#contacto">Contactos</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-icon" id="themeToggle" title="Alternar tema">
+        <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+      <a href="#" class="btn-enroll">Inscrever-se</a>
+      <button class="btn-hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════ HERO SLIDER ═══════ -->
+  <section class="hero-slider" id="heroSlider">
+    <div class="slides-track" id="slidesTrack">
+
+      <!-- Slide 1 -->
+      <div class="slide active">
+        <div class="slide-bg"
+          style="background-image:url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1920&q=85&auto=format&fit=crop')">
+        </div>
+        <div class="slide-overlay"></div>
+        <div class="slide-vignette"></div>
+        <div class="slide-grid"></div>
+        <div class="slide-body">
+          <div class="slide-inner">
+            <div class="s-badge">
+              <div class="s-badge-dot"></div><span>Liderança &amp; Gestão</span>
+            </div>
+            <h1 class="s-title">Formamos<br><em>Líderes</em> que<br><span class="outline">Transformam</span></h1>
+            <div class="s-sub">
+              <div class="s-sub-line"></div><span>Capacitação de Executivos e Quadros Seniores</span>
+            </div>
+            <p class="s-desc">Programas intensivos de desenvolvimento da liderança para directores, gestores e quadros
+              das organizações angolanas e africanas.</p>
+            <div class="s-ctas">
+              <a href="#" class="btn-solid">Explorar Programas <span class="arrow-ico">↗</span></a>
+              <a href="#" class="btn-outline"><span class="play-ico"><svg width="7" height="8" viewBox="0 0 8 9"
+                    fill="currentColor">
+                    <polygon points="1,0.5 7,4.5 1,8.5" />
+                  </svg></span> Ver Vídeo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide">
+        <div class="slide-bg"
+          style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=85&auto=format&fit=crop')">
+        </div>
+        <div class="slide-overlay"></div>
+        <div class="slide-vignette"></div>
+        <div class="slide-grid"></div>
+        <div class="slide-body">
+          <div class="slide-inner">
+            <div class="s-badge">
+              <div class="s-badge-dot"></div><span>Formação Profissional</span>
+            </div>
+            <h1 class="s-title">Competências<br>para a <em>Economia</em><br><span class="outline">do Futuro</span></h1>
+            <div class="s-sub">
+              <div class="s-sub-line"></div><span>Programas Técnicos e Especializados</span>
+            </div>
+            <p class="s-desc">Capacitação técnica e profissional alinhada com os sectores estratégicos da economia
+              nacional — energia, finanças, saúde e tecnologia.</p>
+            <div class="s-ctas">
+              <a href="#areas" class="btn-solid">Ver Áreas <span class="arrow-ico">↗</span></a>
+              <a href="#" class="btn-outline">Calendário 2025</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide">
+        <div class="slide-bg"
+          style="background-image:url('https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=1920&q=85&auto=format&fit=crop')">
+        </div>
+        <div class="slide-overlay"></div>
+        <div class="slide-vignette"></div>
+        <div class="slide-grid"></div>
+        <div class="slide-body">
+          <div class="slide-inner">
+            <div class="s-badge">
+              <div class="s-badge-dot"></div><span>Consultoria &amp; Desenvolvimento</span>
+            </div>
+            <h1 class="s-title">Soluções para<br><em>Organizações</em><br><span class="outline">de Alto Impacto</span>
+            </h1>
+            <div class="s-sub">
+              <div class="s-sub-line"></div><span>Diagnóstico, Estratégia e Transformação</span>
+            </div>
+            <p class="s-desc">Acompanhamos organizações no desenho e implementação de soluções de desenvolvimento humano
+              e institucional sustentáveis.</p>
+            <div class="s-ctas">
+              <a href="#" class="btn-solid">Nossas Soluções <span class="arrow-ico">↗</span></a>
+              <a href="#" class="btn-outline">Falar Connosco</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide">
+        <div class="slide-bg"
+          style="background-image:url('https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=1920&q=85&auto=format&fit=crop')">
+        </div>
+        <div class="slide-overlay"></div>
+        <div class="slide-vignette"></div>
+        <div class="slide-grid"></div>
+        <div class="slide-body">
+          <div class="slide-inner">
+            <div class="s-badge">
+              <div class="s-badge-dot"></div><span>Certificação Internacional</span>
+            </div>
+            <h1 class="s-title">Reconhecimento<br><em>Global</em> com<br><span class="outline">Raízes Locais</span></h1>
+            <div class="s-sub">
+              <div class="s-sub-line"></div><span>Parcerias Académicas Internacionais</span>
+            </div>
+            <p class="s-desc">Certificações com validade internacional, entregues por especialistas com profundo
+              conhecimento do contexto angolano e africano.</p>
+            <div class="s-ctas">
+              <a href="#" class="btn-solid">Ver Parceiros <span class="arrow-ico">↗</span></a>
+              <a href="#" class="btn-outline">Candidatar-se</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="slider-ctrl">
+      <div class="dot-track">
+        <div class="s-dot active" data-i="0"></div>
+        <div class="s-dot" data-i="1"></div>
+        <div class="s-dot" data-i="2"></div>
+        <div class="s-dot" data-i="3"></div>
+      </div>
+      <div class="arrow-wrap">
+        <button class="s-arrow" id="prevBtn">&#8592;</button>
+        <button class="s-arrow" id="nextBtn">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="slide-counter"><strong id="cntCur">01</strong> / <span id="cntTotal">04</span></div>
+
+    <div class="scroll-cue">
+      <span>Deslizar</span>
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+    </div>
+
+    <div class="slide-bar" id="slideBar"></div>
+  </section>
+
+  <!-- ═══════ STATS BAR ═══════ -->
+  <div class="stats-bar">
+    <div class="stats-row">
+      <div class="stat-cell">
+        <div class="stat-val"><span translate="no" class="ctr" data-t="20">0</span><sup>+</sup></div>
+        <div class="stat-desc">Anos de Experiência</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-val"><span translate="no" class="ctr" data-t="5">0</span><sup>k+</sup></div>
+        <div class="stat-desc">Profissionais Capacitados</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-val"><span translate="no" class="ctr" data-t="48">0</span><sup>+</sup></div>
+        <div class="stat-desc">Programas de Formação</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-val"><span translate="no" class="ctr" data-t="12">0</span></div>
+        <div class="stat-desc">Sectores Estratégicos</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ SOBRE ═══════ -->
+  <section class="section" id="sobre">
+    <div class="section-ghost">SOBRE</div>
+
+    <div class="section-header">
+      <div class="reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div><span>Secção 01</span>
+        </div>
+        <h2 class="section-title">Quem <em>Somos</em><br>e o que nos move</h2>
+      </div>
+      <p class="section-lead reveal delay-2">
+        O MAI actua como parceiro estratégico de empresas públicas e privadas, organismos governamentais e organizações
+        internacionais, contribuindo para o desenvolvimento do capital humano e a criação de valor sustentável.
+      </p>
+    </div>
+
+    <div class="bento">
+
+      <!-- Quem Somos – 2 cols -->
+      <div class="bento-cell cell-who reveal">
+        <div class="cell-img-wrap">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80&auto=format&fit=crop"
+            alt="Equipa MAI" loading="lazy">
+          <div class="cell-img-overlay"></div>
+          <div class="cell-img-badge">Desde 2004</div>
+        </div>
+        <div>
+          <div class="cell-eyebrow">Quem Somos</div>
+          <div class="cell-num">01</div>
+          <h3 class="cell-title">Uma instituição<br>ao serviço de <em>Angola</em></h3>
+          <p class="cell-body">O Mirabilis Alliance Institute (MAI) é uma instituição angolana de formação profissional
+            e desenvolvimento de competências, vocacionada para a capacitação de quadros, executivos e organizações dos
+            sectores estratégicos da economia nacional e internacional.<br><br>Com uma abordagem orientada para a
+            excelência, inovação e transferência de conhecimento, o Instituto promove programas formativos de elevado
+            impacto, concebidos para responder aos desafios da transformação digital, sustentabilidade, competitividade
+            empresarial e conformidade regulatória.</p>
+        </div>
+        <div class="cell-cta">↗</div>
+      </div>
+
+      <!-- Missão – 1 col -->
+      <div class="bento-cell cell-mission reveal delay-2">
+        <div class="cell-eyebrow">Nossa Missão</div>
+        <div class="cell-num">02</div>
+        <h3 class="cell-title">Impulsionar a<br><em>Excelência</em></h3>
+        <p class="cell-body">Desenvolver competências técnicas, profissionais e estratégicas que impulsionem a
+          excelência, a inovação e a sustentabilidade das organizações e dos profissionais.</p>
+        <div class="cell-cta">↗</div>
+      </div>
+
+      <!-- Visão -->
+      <div class="bento-cell cell-vision reveal">
+        <div>
+          <div class="cell-eyebrow">Nossa Visão</div>
+          <div class="cell-num">03</div>
+          <h3 class="cell-title">Centro de <em>Excelência</em> em África</h3>
+          <div class="cell-cta"
+            style="position:relative;top:auto;right:auto;margin-top:20px;width:34px;height:34px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-3);font-size:12px">
+            ↗</div>
+        </div>
+        <div class="vision-right">
+          <div>
+            <p class="cell-body">Ser reconhecido como um dos principais centros de excelência em formação profissional,
+              capacitação executiva e desenvolvimento organizacional em África.</p>
+            <div class="vision-quote">"Construímos pontes entre o conhecimento global e as necessidades reais do
+              contexto angolano."</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="mini-stat">
+              <div class="mini-stat-val">48<sup>+</sup></div>
+              <div class="mini-stat-lbl">Programas activos</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-stat-val">12</div>
+              <div class="mini-stat-lbl">Sectores estratégicos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Valores -->
+      <div class="bento-cell cell-values reveal">
+        <div class="values-row">
+          <div>
+            <div class="cell-eyebrow">Nossos Valores</div>
+            <h3 class="cell-title" style="margin-bottom:0">O que nos <em>define</em></h3>
+          </div>
+          <p class="values-note">Os nossos valores são o alicerce de cada programa, cada parceria e cada decisão que
+            tomamos enquanto instituição.</p>
+        </div>
+        <div class="values-grid">
+          <div class="val-card reveal delay-1">
+            <div class="val-ico"><span translate="no" class="mdi mdi-star-four-points-outline"></span></div>
+            <div class="val-name">Excelência</div>
+          </div>
+          <div class="val-card reveal delay-2">
+            <div class="val-ico"><span translate="no" class="mdi mdi-lightning-bolt-outline"></span></div>
+            <div class="val-name">Inovação</div>
+          </div>
+          <div class="val-card reveal delay-3">
+            <div class="val-ico"><span translate="no" class="mdi mdi-scale-balance"></span></div>
+            <div class="val-name">Integridade</div>
+          </div>
+          <div class="val-card reveal delay-4">
+            <div class="val-ico"><span translate="no" class="mdi mdi-handshake-outline"></span></div>
+            <div class="val-name">Compromisso</div>
+          </div>
+          <div class="val-card reveal delay-5">
+            <div class="val-ico"><span translate="no" class="mdi mdi-leaf-circle-outline"></span></div>
+            <div class="val-name">Sustentabilidade</div>
+          </div>
+          <div class="val-card reveal delay-6">
+            <div class="val-ico"><span translate="no" class="mdi mdi-account-group-outline"></span></div>
+            <div class="val-name">Responsabilidade Social</div>
+          </div>
+          <div class="val-card reveal delay-7">
+            <div class="val-ico"><span translate="no" class="mdi mdi-trending-up"></span></div>
+            <div class="val-name">Desenvolvimento Contínuo</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════ ÁREAS ═══════ -->
+  <section class="section" id="areas">
+    <div class="areas-bg"></div>
+    <div class="section-ghost">ÁREAS</div>
+
+    <div class="section-header">
+      <div class="reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div><span>Secção 02</span>
+        </div>
+        <h2 class="section-title">Áreas de <em>Actuação</em></h2>
+      </div>
+      <p class="section-lead reveal delay-2">
+        Formação especializada nos sectores estratégicos da economia angolana e internacional, com programas concebidos
+        por especialistas de cada indústria.
+      </p>
+    </div>
+
+    <!-- Tab bar -->
+    <div class="areas-tabbar">
+      <div class="areas-tabs">
+        <button class="area-tab active" data-area="0"><span translate="no" class="mdi mdi-bank-outline"></span><span
+            class="tab-lbl">Banca &amp; Finanças</span></button>
+        <button class="area-tab" data-area="1"><span translate="no" class="mdi mdi-lightning-bolt-outline"></span><span
+            class="tab-lbl">Energia &amp; Recursos</span></button>
+        <button class="area-tab" data-area="2"><span translate="no" class="mdi mdi-factory"></span><span
+            class="tab-lbl">Indústria &amp; Produção</span></button>
+        <button class="area-tab" data-area="3"><span translate="no" class="mdi mdi-truck-outline"></span><span
+            class="tab-lbl">Transporte &amp; Logística</span></button>
+        <button class="area-tab" data-area="4"><span translate="no" class="mdi mdi-shield-lock-outline"></span><span
+            class="tab-lbl">Seg. Informação &amp; Tech</span></button>
+        <button class="area-tab" data-area="5"><span translate="no" class="mdi mdi-airplane"></span><span
+            class="tab-lbl">Aviação Civil</span></button>
+      </div>
+    </div>
+
+    <div class="areas-panels">
+
+      <!-- 0: Banca -->
+      <div class="area-panel active" data-panel="0">
+        <div class="panel-left">
+          <div class="panel-eyebrow"><span translate="no" class="mdi mdi-bank-outline"></span> Sector 01</div>
+          <h3 class="panel-title">Sector Bancário<br>e <em>Financeiro</em></h3>
+          <p class="panel-desc">Capacitação especializada para instituições financeiras, bancos, seguradoras e fintechs,
+            com foco em conformidade regulatória e inovação.</p>
+          <div class="panel-meta">
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-book-open-outline"></span> 9 Programas
+              disponíveis</div>
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-certificate-outline"></span> Certificado MAI
+            </div>
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-clock-outline"></span> 24 a 80 horas</div>
+          </div>
+          <a href="#" class="panel-btn">Ver Programas <span translate="no" class="mdi mdi-arrow-right"></span></a>
+        </div>
+        <div class="panel-right">
+          <div class="panel-img">
+            <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?w=900&q=80&auto=format&fit=crop"
+              alt="Banca e Finanças" loading="lazy">
+            <div class="panel-img-grad"></div>
+            <div class="panel-img-badge"><span translate="no" class="mdi mdi-bank-outline"></span> Banca &amp; Finanças
+            </div>
+          </div>
+          <div class="chips-wrap">
+            <div class="chip"><span translate="no" class="mdi mdi-shield-check-outline"></span> Supervisão Bancária
+            </div>
+            <div class="chip"><span translate="no" class="mdi mdi-alert-outline"></span> Gestão de Risco</div>
+            <div class="chip"><span translate="no" class="mdi mdi-file-check-outline"></span> Compliance e AML</div>
+            <div class="chip"><span translate="no" class="mdi mdi-domain"></span> Governança Corporativa</div>
+            <div class="chip"><span translate="no" class="mdi mdi-credit-card-outline"></span> Produtos e Serviços
+              Bancários</div>
+            <div class="chip"><span translate="no" class="mdi mdi-sprout-outline"></span> Crédito Agrícola e Empresarial
+            </div>
+            <div class="chip"><span translate="no" class="mdi mdi-cash-multiple"></span> Gestão de Tesouraria</div>
+            <div class="chip"><span translate="no" class="mdi mdi-chart-bar"></span> Reporte Regulatório</div>
+            <div class="chip"><span translate="no" class="mdi mdi-cellphone-wireless"></span> Transformação Digital
+              Bancária</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1: Energia -->
+      <div class="area-panel" data-panel="1">
+        <div class="panel-left">
+          <div class="panel-eyebrow"><span translate="no" class="mdi mdi-lightning-bolt-outline"></span> Sector 02</div>
+          <h3 class="panel-title">Energia e<br><em>Recursos Naturais</em></h3>
+          <p class="panel-desc">Programas focados na transição energética, eficiência operacional e sustentabilidade
+            para empresas do sector energético.</p>
+          <div class="panel-meta">
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-book-open-outline"></span> 8 Programas
+              disponíveis</div>
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-certificate-outline"></span> Certificado MAI
+            </div>
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-clock-outline"></span> 24 a 80 horas</div>
+          </div>
+          <a href="#" class="panel-btn">Ver Programas <span translate="no" class="mdi mdi-arrow-right"></span></a>
+        </div>
+        <div class="panel-right">
+          <div class="panel-img">
+            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=900&q=80&auto=format&fit=crop"
+              alt="Energia" loading="lazy">
+            <div class="panel-img-grad"></div>
+            <div class="panel-img-badge"><span translate="no" class="mdi mdi-lightning-bolt-outline"></span> Energia
+              &amp; Recursos</div>
+          </div>
+          <div class="chips-wrap">
+            <div class="chip"><span translate="no" class="mdi mdi-solar-power"></span> Energias Renováveis</div>
+            <div class="chip"><span translate="no" class="mdi mdi-solar-panel"></span> Energia Solar Fotovoltaica</div>
+            <div class="chip"><span translate="no" class="mdi mdi-car-electric-outline"></span> Eletromobilidade</div>
+            <div class="chip"><span translate="no" class="mdi mdi-ev-station"></span> Infraestruturas de Recarga</div>
+            <div class="chip"><span translate="no" class="mdi mdi-leaf-circle-outline"></span> Eficiência Energética
+            </div>
+            <div class="chip"><span translate="no" class="mdi mdi-briefcase-outline"></span> Gestão de Projectos
+              Energéticos</div>
+            <div class="chip"><span translate="no" class="mdi mdi-recycle"></span> ESG e Sustentabilidade</div>
+            <div class="chip"><span translate="no" class="mdi mdi-oil"></span> Indústria Petrolífera e Gás</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: Indústria -->
+      <div class="area-panel" data-panel="2">
+        <div class="panel-left">
+          <div class="panel-eyebrow"><span translate="no" class="mdi mdi-factory"></span> Sector 03</div>
+          <h3 class="panel-title">Indústria e<br><em>Produção</em></h3>
+          <p class="panel-desc">Soluções formativas orientadas para produtividade, qualidade e inovação industrial,
+            alinhadas com as melhores práticas internacionais.</p>
+          <div class="panel-meta">
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-book-open-outline"></span> 8 Programas
+              disponíveis</div>
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-certificate-outline"></span> Certificado MAI
+            </div>
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-clock-outline"></span> 24 a 60 horas</div>
+          </div>
+          <a href="#" class="panel-btn">Ver Programas <span translate="no" class="mdi mdi-arrow-right"></span></a>
+        </div>
+        <div class="panel-right">
+          <div class="panel-img">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80&auto=format&fit=crop"
+              alt="Indústria" loading="lazy">
+            <div class="panel-img-grad"></div>
+            <div class="panel-img-badge"><span translate="no" class="mdi mdi-factory"></span> Indústria &amp; Produção
+            </div>
+          </div>
+          <div class="chips-wrap">
+            <div class="chip"><span translate="no" class="mdi mdi-cog-outline"></span> Lean Manufacturing</div>
+            <div class="chip"><span translate="no" class="mdi mdi-chart-line"></span> Gestão Industrial</div>
+            <div class="chip"><span translate="no" class="mdi mdi-wrench-outline"></span> Manutenção Industrial</div>
+            <div class="chip"><span translate="no" class="mdi mdi-check-decagram-outline"></span> Gestão da Qualidade
+            </div>
+            <div class="chip"><span translate="no" class="mdi mdi-certificate-outline"></span> Normas ISO</div>
+            <div class="chip"><span translate="no" class="mdi mdi-robot-industrial-outline"></span> Automação Industrial
+            </div>
+            <div class="chip"><span translate="no" class="mdi mdi-hard-hat"></span> Segurança Industrial</div>
+            <div class="chip"><span translate="no" class="mdi mdi-clipboard-list-outline"></span> Gestão de Operações
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: Logística -->
+      <div class="area-panel" data-panel="3">
+        <div class="panel-left">
+          <div class="panel-eyebrow"><span translate="no" class="mdi mdi-truck-outline"></span> Sector 04</div>
+          <h3 class="panel-title">Transporte e<br><em>Logística</em></h3>
+          <p class="panel-desc">Capacitação para o desenvolvimento de cadeias logísticas eficientes e sustentáveis,
+            desde o transporte rodoviário até à gestão portuária.</p>
+          <div class="panel-meta">
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-book-open-outline"></span> 8 Programas
+              disponíveis</div>
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-certificate-outline"></span> Certificado MAI
+            </div>
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-clock-outline"></span> 24 a 80 horas</div>
+          </div>
+          <a href="#" class="panel-btn">Ver Programas <span translate="no" class="mdi mdi-arrow-right"></span></a>
+        </div>
+        <div class="panel-right">
+          <div class="panel-img">
+            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=900&q=80&auto=format&fit=crop"
+              alt="Logística" loading="lazy">
+            <div class="panel-img-grad"></div>
+            <div class="panel-img-badge"><span translate="no" class="mdi mdi-truck-outline"></span> Transporte &amp;
+              Logística</div>
+          </div>
+          <div class="chips-wrap">
+            <div class="chip"><span translate="no" class="mdi mdi-map-marker-path"></span> Gestão Logística Integrada
+            </div>
+            <div class="chip"><span translate="no" class="mdi mdi-link-variant"></span> Supply Chain Management</div>
+            <div class="chip"><span translate="no" class="mdi mdi-truck-fast-outline"></span> Transporte Rodoviário
+            </div>
+            <div class="chip"><span translate="no" class="mdi mdi-airplane"></span> Transporte Aéreo</div>
+            <div class="chip"><span translate="no" class="mdi mdi-ferry"></span> Gestão Portuária</div>
+            <div class="chip"><span translate="no" class="mdi mdi-earth"></span> Comércio Internacional</div>
+            <div class="chip"><span translate="no" class="mdi mdi-package-variant-closed"></span> Inspecção de Cargas
+            </div>
+            <div class="chip"><span translate="no" class="mdi mdi-file-document-outline"></span> Logística Aduaneira
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: Seg. TI -->
+      <div class="area-panel" data-panel="4">
+        <div class="panel-left">
+          <div class="panel-eyebrow"><span translate="no" class="mdi mdi-shield-lock-outline"></span> Sector 05</div>
+          <h3 class="panel-title">Segurança da<br><em>Informação &amp; Tech</em></h3>
+          <p class="panel-desc">Preparação de profissionais para os desafios da transformação digital e da
+            cibersegurança em contextos empresariais e governamentais.</p>
+          <div class="panel-meta">
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-book-open-outline"></span> 8 Programas
+              disponíveis</div>
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-certificate-outline"></span> Certificado MAI
+            </div>
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-clock-outline"></span> 32 a 80 horas</div>
+          </div>
+          <a href="#" class="panel-btn">Ver Programas <span translate="no" class="mdi mdi-arrow-right"></span></a>
+        </div>
+        <div class="panel-right">
+          <div class="panel-img">
+            <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=900&q=80&auto=format&fit=crop"
+              alt="Cibersegurança" loading="lazy">
+            <div class="panel-img-grad"></div>
+            <div class="panel-img-badge"><span translate="no" class="mdi mdi-shield-lock-outline"></span> Seg.
+              Informação</div>
+          </div>
+          <div class="chips-wrap">
+            <div class="chip"><span translate="no" class="mdi mdi-lock-outline"></span> Segurança da Informação</div>
+            <div class="chip"><span translate="no" class="mdi mdi-shield-bug-outline"></span> Cibersegurança</div>
+            <div class="chip"><span translate="no" class="mdi mdi-monitor-dashboard"></span> Governança de TI</div>
+            <div class="chip"><span translate="no" class="mdi mdi-alert-circle-outline"></span> Gestão de Riscos
+              Tecnológicos</div>
+            <div class="chip"><span translate="no" class="mdi mdi-database-lock-outline"></span> Protecção de Dados
+            </div>
+            <div class="chip"><span translate="no" class="mdi mdi-magnify-scan"></span> Auditoria de Sistemas</div>
+            <div class="chip"><span translate="no" class="mdi mdi-restart"></span> Continuidade de Negócio</div>
+            <div class="chip"><span translate="no" class="mdi mdi-robot-outline"></span> IA Aplicada aos Negócios</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: Aviação -->
+      <div class="area-panel" data-panel="5">
+        <div class="panel-left">
+          <div class="panel-eyebrow"><span translate="no" class="mdi mdi-airplane"></span> Sector 06</div>
+          <h3 class="panel-title">Aviação<br><em>Civil</em></h3>
+          <p class="panel-desc">Programas especializados para operadores aeroportuários, companhias aéreas e autoridades
+            aeronáuticas, alinhados com padrões ICAO.</p>
+          <div class="panel-meta">
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-book-open-outline"></span> 8 Programas
+              disponíveis</div>
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-certificate-outline"></span> Certificado MAI
+            </div>
+            <div class="panel-meta-row"><span translate="no" class="mdi mdi-clock-outline"></span> 24 a 60 horas</div>
+          </div>
+          <a href="#" class="panel-btn">Ver Programas <span translate="no" class="mdi mdi-arrow-right"></span></a>
+        </div>
+        <div class="panel-right">
+          <div class="panel-img">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=80&auto=format&fit=crop"
+              alt="Aviação" loading="lazy">
+            <div class="panel-img-grad"></div>
+            <div class="panel-img-badge"><span translate="no" class="mdi mdi-airplane"></span> Aviação Civil</div>
+          </div>
+          <div class="chips-wrap">
+            <div class="chip"><span translate="no" class="mdi mdi-shield-airplane-outline"></span> Segurança Operacional
+              (Safety)</div>
+            <div class="chip"><span translate="no" class="mdi mdi-security"></span> Segurança Aviação Civil (AVSEC)
+            </div>
+            <div class="chip"><span translate="no" class="mdi mdi-airport"></span> Gestão Aeroportuária</div>
+            <div class="chip"><span translate="no" class="mdi mdi-seat-passenger"></span> Ground Handling</div>
+            <div class="chip"><span translate="no" class="mdi mdi-check-decagram-outline"></span> Gestão da Qualidade na
+              Aviação</div>
+            <div class="chip"><span translate="no" class="mdi mdi-package-variant"></span> Transporte de Mercadorias
+              Perigosas</div>
+            <div class="chip"><span translate="no" class="mdi mdi-file-check-outline"></span> Compliance Aeronáutico
+            </div>
+            <div class="chip"><span translate="no" class="mdi mdi-alert-outline"></span> Gestão de Risco Operacional
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /areas-panels -->
+
+    <div class="areas-footer reveal">
+      <div class="areas-footer-msg">
+        <span translate="no" class="mdi mdi-layers-outline"></span>
+        Não encontrou a sua área? Desenvolvemos programas <em>à medida</em> para a sua organização.
+      </div>
+      <a href="#" class="panel-btn">Falar Connosco <span translate="no" class="mdi mdi-arrow-right"></span></a>
+    </div>
+
+  </section>
+
+  <!-- ═══════ SOLUÇÕES ═══════ -->
+  <section class="section" id="solucoes">
+    <div class="section-ghost">SOLUÇÕES</div>
+
+    <div class="section-header">
+      <div class="reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div><span>Secção 03</span>
+        </div>
+        <h2 class="section-title">Soluções <em>Corporativas</em></h2>
+      </div>
+      <p class="section-lead reveal delay-2">
+        O MAI disponibiliza soluções personalizadas para organizações públicas e privadas, respondendo às necessidades
+        específicas de cada sector e contexto.
+      </p>
+    </div>
+
+    <!-- Cards de soluções -->
+    <div class="sol-cards">
+
+      <div class="sol-card reveal">
+        <div class="sol-card-num">01</div>
+        <div class="sol-card-ico"><span translate="no" class="mdi mdi-office-building-outline"></span></div>
+        <div class="sol-card-title">Formação In Company</div>
+        <p class="sol-card-body">Programas desenvolvidos inteiramente à medida das necessidades específicas do cliente,
+          ministrados nas instalações da organização ou em ambiente MAI.</p>
+        <a href="#" class="sol-card-link">Saber mais <span translate="no" class="mdi mdi-arrow-right"></span></a>
+      </div>
+
+      <div class="sol-card reveal delay-1">
+        <div class="sol-card-num">02</div>
+        <div class="sol-card-ico"><span translate="no" class="mdi mdi-account-tie-outline"></span></div>
+        <div class="sol-card-title">Formação Executiva</div>
+        <p class="sol-card-body">Capacitação de gestores, directores e líderes empresariais com programas desenhados
+          para desenvolver competências de liderança e gestão estratégica.</p>
+        <a href="#" class="sol-card-link">Saber mais <span translate="no" class="mdi mdi-arrow-right"></span></a>
+      </div>
+
+      <div class="sol-card reveal delay-2">
+        <div class="sol-card-num">03</div>
+        <div class="sol-card-ico"><span translate="no" class="mdi mdi-chart-tree"></span></div>
+        <div class="sol-card-title">Consultoria Especializada</div>
+        <p class="sol-card-body">Apoio técnico e estratégico para melhoria de processos, desenvolvimento organizacional
+          e implementação de soluções de gestão de capital humano.</p>
+        <a href="#" class="sol-card-link">Saber mais <span translate="no" class="mdi mdi-arrow-right"></span></a>
+      </div>
+
+      <div class="sol-card reveal delay-1">
+        <div class="sol-card-num">04</div>
+        <div class="sol-card-ico"><span translate="no" class="mdi mdi-certificate-outline"></span></div>
+        <div class="sol-card-title">Certificações Profissionais</div>
+        <p class="sol-card-body">Preparação intensiva para certificações nacionais e internacionais reconhecidas pelos
+          principais organismos do sector em Angola e no mundo.</p>
+        <a href="#" class="sol-card-link">Saber mais <span translate="no" class="mdi mdi-arrow-right"></span></a>
+      </div>
+
+      <!-- Wide card - Internacional -->
+      <div class="sol-card sol-card-wide reveal delay-2">
+        <div class="sol-card-num" style="font-size:120px;opacity:0.04">05</div>
+        <div>
+          <div class="sol-card-ico" style="margin-bottom:18px"><span translate="no" class="mdi mdi-earth"></span></div>
+          <div class="sol-card-title" style="font-size:20px;margin-bottom:12px">Programas Internacionais</div>
+          <p class="sol-card-body">Intercâmbios técnicos, missões empresariais e visitas de estudo em parceria com
+            organizações e instituições académicas de referência.</p>
+          <a href="#" class="sol-card-link" style="margin-top:8px">Conhecer Destinos <span translate="no"
+              class="mdi mdi-arrow-right"></span></a>
+        </div>
+        <div class="sol-prog-countries">
+          <div class="country-pill"><span translate="no" class="mdi mdi-flag-outline"></span> Angola</div>
+          <div class="country-pill"><span translate="no" class="mdi mdi-flag-outline"></span> Portugal</div>
+          <div class="country-pill"><span translate="no" class="mdi mdi-flag-outline"></span> Brasil</div>
+          <div class="country-pill"><span translate="no" class="mdi mdi-flag-outline"></span> África do Sul</div>
+          <div class="country-pill"><span translate="no" class="mdi mdi-flag-outline"></span> Emirados Árabes</div>
+          <div class="country-pill"><span translate="no" class="mdi mdi-plus-circle-outline"></span> Outros mercados
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /sol-cards -->
+
+    <!-- Metodologia -->
+    <div class="section-header reveal" style="margin-top:0;margin-bottom:32px">
+      <div>
+        <div class="section-label">
+          <div class="section-label-line"></div><span>Como formamos</span>
+        </div>
+        <h2 class="section-title" style="font-size:clamp(26px,3vw,42px)">Nossa <em>Metodologia</em></h2>
+      </div>
+      <p class="section-lead">Combinamos múltiplas abordagens pedagógicas para garantir a máxima eficácia e
+        transferência de conhecimento para o contexto real de trabalho.</p>
+    </div>
+
+    <div class="metodologia-wrap reveal">
+      <div class="met-left">
+        <div class="met-left-label">Aprendizagem Activa</div>
+        <h3 class="met-left-title">Aprender<br>fazendo.</h3>
+        <p class="met-left-desc">A nossa metodologia combina teoria e prática de forma equilibrada, colocando o
+          participante no centro da experiência formativa e promovendo a transferência imediata para o contexto
+          profissional.</p>
+      </div>
+      <div class="met-right">
+        <div class="met-item">
+          <div class="met-item-check"><span translate="no" class="mdi mdi-check"></span></div><span
+            class="met-item-text">Formação Presencial</span>
+        </div>
+        <div class="met-item">
+          <div class="met-item-check"><span translate="no" class="mdi mdi-check"></span></div><span
+            class="met-item-text">Formação Online (Live Learning)</span>
+        </div>
+        <div class="met-item">
+          <div class="met-item-check"><span translate="no" class="mdi mdi-check"></span></div><span
+            class="met-item-text">Workshops Práticos</span>
+        </div>
+        <div class="met-item">
+          <div class="met-item-check"><span translate="no" class="mdi mdi-check"></span></div><span
+            class="met-item-text">Estudos de Caso Reais</span>
+        </div>
+        <div class="met-item">
+          <div class="met-item-check"><span translate="no" class="mdi mdi-check"></span></div><span
+            class="met-item-text">Simulações Empresariais</span>
+        </div>
+        <div class="met-item">
+          <div class="met-item-check"><span translate="no" class="mdi mdi-check"></span></div><span
+            class="met-item-text">Mentoria Especializada</span>
+        </div>
+        <div class="met-item">
+          <div class="met-item-check"><span translate="no" class="mdi mdi-check"></span></div><span
+            class="met-item-text">Visitas Técnicas</span>
+        </div>
+        <div class="met-item">
+          <div class="met-item-check"><span translate="no" class="mdi mdi-check"></span></div><span
+            class="met-item-text">Certificação de Competências</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Diferenciais -->
+    <div class="section-header reveal" style="margin-top:72px;margin-bottom:32px">
+      <div>
+        <div class="section-label">
+          <div class="section-label-line"></div><span>Por que o MAI</span>
+        </div>
+        <h2 class="section-title" style="font-size:clamp(26px,3vw,42px)">Diferenciais <em>Competitivos</em></h2>
+      </div>
+    </div>
+
+    <div class="diferenciais-grid">
+      <div class="dif-card reveal">
+        <div class="dif-card-ico"><span translate="no" class="mdi mdi-account-star-outline"></span></div>
+        <div class="dif-card-title">Corpo Docente Especializado</div>
+        <p class="dif-card-body">Profissionais nacionais e internacionais com experiência comprovada no mercado e nas
+          principais organizações dos seus sectores.</p>
+      </div>
+      <div class="dif-card reveal delay-1">
+        <div class="dif-card-ico"><span translate="no" class="mdi mdi-target"></span></div>
+        <div class="dif-card-title">Formação Orientada para Resultados</div>
+        <p class="dif-card-body">Conteúdos alinhados às necessidades actuais das organizações, com métricas de impacto
+          mensuráveis e orientadas para resultados tangíveis.</p>
+      </div>
+      <div class="dif-card reveal delay-2">
+        <div class="dif-card-ico"><span translate="no" class="mdi mdi-handshake-outline"></span></div>
+        <div class="dif-card-title">Parcerias Estratégicas</div>
+        <p class="dif-card-body">Colaboração com empresas, universidades, associações profissionais e organismos
+          internacionais que reforçam a qualidade e credibilidade dos programas.</p>
+      </div>
+      <div class="dif-card reveal delay-3">
+        <div class="dif-card-ico"><span translate="no" class="mdi mdi-lightbulb-on-outline"></span></div>
+        <div class="dif-card-title">Inovação e Tecnologia</div>
+        <p class="dif-card-body">Utilização de ferramentas digitais e metodologias modernas de aprendizagem que preparam
+          os participantes para os desafios do futuro.</p>
+      </div>
+      <div class="dif-card reveal delay-4">
+        <div class="dif-card-ico"><span translate="no" class="mdi mdi-earth-plus"></span></div>
+        <div class="dif-card-title">Alcance Nacional e Internacional</div>
+        <p class="dif-card-body">Capacidade para desenvolver programas em todo o território angolano e em mercados
+          internacionais estratégicos.</p>
+      </div>
+    </div>
+
+    <!-- Impacto banner -->
+    <div class="impacto-banner reveal">
+      <div>
+        <div class="impacto-label">
+          <div class="impacto-label-dot"></div><span>Compromisso MAI</span>
+        </div>
+        <h3 class="impacto-title">Impacto e<br><em>Compromisso</em></h3>
+        <p class="impacto-body">O Mirabilis Alliance Institute acredita que o desenvolvimento sustentável de Angola
+          depende da qualificação contínua dos seus profissionais. Trabalhamos diariamente para fortalecer competências,
+          promover a inovação e contribuir para o crescimento das organizações e da economia nacional.</p>
+      </div>
+      <div class="impacto-right">
+        <div class="impacto-stat">
+          <div class="impacto-stat-val"><span translate="no" class="ctr2" data-t="5">0</span><sup>k+</sup></div>
+          <div class="impacto-stat-desc">Profissionais capacitados com impacto mensurável nas suas organizações</div>
+        </div>
+        <div class="impacto-stat">
+          <div class="impacto-stat-val"><span translate="no" class="ctr2" data-t="98">0</span><sup>%</sup></div>
+          <div class="impacto-stat-desc">Taxa de satisfação dos participantes nos programas MAI</div>
+        </div>
+        <div class="impacto-stat">
+          <div class="impacto-stat-val"><span translate="no" class="ctr2" data-t="20">0</span><sup>+</sup></div>
+          <div class="impacto-stat-desc">Anos de experiência acumulada no desenvolvimento de competências</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════ CONTACTO ═══════ -->
+  <section class="section" id="contacto">
+    <div class="section-ghost">CONTACTO</div>
+
+    <div class="section-header">
+      <div class="reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div><span>Secção 04</span>
+        </div>
+        <h2 class="section-title">Fale <em>Connosco</em></h2>
+      </div>
+      <p class="section-lead reveal delay-2">
+        Estamos disponíveis para o ajudar a encontrar a solução formativa certa para si ou para a sua organização.
+      </p>
+    </div>
+
+    <div class="contacto-grid reveal">
+
+      <!-- Form -->
+      <div class="contacto-form-wrap">
+        <div class="form-title">Envie-nos uma mensagem</div>
+        <p class="form-subtitle">Preencha o formulário e um dos nossos especialistas entrará em contacto em até 24 horas
+          úteis.</p>
+
+        <div id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nome *</label>
+              <input type="text" id="fName" placeholder="O seu nome completo" required>
+            </div>
+            <div class="form-group">
+              <label>Apelido *</label>
+              <input type="text" id="fLastname" placeholder="O seu apelido" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>E-mail *</label>
+            <input type="email" id="fEmail" placeholder="nome@empresa.ao" required>
+          </div>
+          <div class="form-group">
+            <label>Telefone / WhatsApp</label>
+            <input type="tel" id="fPhone" placeholder="+244 9XX XXX XXX">
+          </div>
+          <div class="form-group">
+            <label>Organização</label>
+            <input type="text" id="fOrg" placeholder="Nome da sua empresa ou instituição">
+          </div>
+          <div class="form-group">
+            <label>Área de Interesse</label>
+            <select id="fArea">
+              <option value="" disabled selected>Seleccionar área</option>
+              <option>Banca &amp; Finanças</option>
+              <option>Energia &amp; Recursos Naturais</option>
+              <option>Indústria &amp; Produção</option>
+              <option>Transporte &amp; Logística</option>
+              <option>Segurança da Informação &amp; Tech</option>
+              <option>Aviação Civil</option>
+              <option>Formação In Company</option>
+              <option>Consultoria Especializada</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mensagem</label>
+            <textarea id="fMsg" placeholder="Descreva brevemente o que procura…"></textarea>
+          </div>
+          <div class="form-privacy">
+            <input type="checkbox" id="fPrivacy">
+            <label for="fPrivacy">Concordo com a <a href="#">Política de Privacidade</a> e autorizo o tratamento dos
+              meus dados para fins de contacto comercial.</label>
+          </div>
+          <button class="btn-form-submit" id="formSubmit" type="button">
+            <span translate="no" class="mdi mdi-send-outline"></span>
+            Enviar Mensagem
+          </button>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-ico"><span translate="no" class="mdi mdi-check-bold"></span></div>
+          <h4>Mensagem enviada!</h4>
+          <p>Obrigado pelo seu contacto. A nossa equipa responderá em breve.</p>
+        </div>
+      </div>
+
+      <!-- Mapa + Contactos -->
+      <div class="contacto-info-wrap">
+        <div class="contact-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.5!2d13.2344!3d-8.8368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sLuanda%2C+Angola!5e0!3m2!1spt!2sao!4v1700000000000!5m2!1spt!2sao"
+            loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            title="Localização MAI – Luanda, Angola">
+          </iframe>
+          <div class="contact-map-overlay"></div>
+        </div>
+
+        <div class="contact-details">
+          <div class="contact-details-title">Informações de Contacto</div>
+
+          <div class="contact-row">
+            <div class="contact-row-ico"><span translate="no" class="mdi mdi-map-marker-outline"></span></div>
+            <div class="contact-row-text">
+              <div class="contact-row-label">Morada</div>
+              <div class="contact-row-val">Urbanização Nova Rua 165A<br>Luanda, Angola</div>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-row-ico"><span translate="no" class="mdi mdi-phone-outline"></span></div>
+            <div class="contact-row-text">
+              <div class="contact-row-label">Telefone</div>
+              <div class="contact-row-val"><a href="tel:+244999999999">+244 999 999 999</a></div>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-row-ico"><span translate="no" class="mdi mdi-whatsapp"></span></div>
+            <div class="contact-row-text">
+              <div class="contact-row-label">WhatsApp</div>
+              <div class="contact-row-val"><a href="https://wa.me/244999999999" target="_blank">+244 999 999 999</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-row-ico"><span translate="no" class="mdi mdi-email-outline"></span></div>
+            <div class="contact-row-text">
+              <div class="contact-row-label">E-mail</div>
+              <div class="contact-row-val"><a href="mailto:geral@mai.ao">geral@mai.ao</a></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="contact-row-label" style="margin-bottom:12px">Redes Sociais</div>
+            <div class="contact-socials">
+              <a href="#" class="social-btn" title="LinkedIn"><span translate="no" class="mdi mdi-linkedin"></span></a>
+              <a href="#" class="social-btn" title="Facebook"><span translate="no" class="mdi mdi-facebook"></span></a>
+              <a href="#" class="social-btn" title="Instagram"><span translate="no"
+                  class="mdi mdi-instagram"></span></a>
+              <a href="#" class="social-btn" title="YouTube"><span translate="no" class="mdi mdi-youtube"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name" translate="no">MAI</div>
+        <div class="footer-brand-tagline" translate="no">Mirabilis Alliance Institute</div>
+        <p class="footer-brand-desc">Instituição angolana de formação profissional e desenvolvimento de competências,
+          vocacionada para a capacitação de quadros, executivos e organizações.</p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Navegação</div>
+        <div class="footer-links">
+          <a href="#"><span translate="no" class="mdi mdi-chevron-right"></span> Home</a>
+          <a href="#sobre"><span translate="no" class="mdi mdi-chevron-right"></span> Sobre</a>
+          <a href="#areas"><span translate="no" class="mdi mdi-chevron-right"></span> Áreas</a>
+          <a href="#solucoes"><span translate="no" class="mdi mdi-chevron-right"></span> Soluções</a>
+          <a href="#contacto"><span translate="no" class="mdi mdi-chevron-right"></span> Contactos</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Áreas</div>
+        <div class="footer-links">
+          <a href="#areas"><span translate="no" class="mdi mdi-chevron-right"></span> Banca &amp; Finanças</a>
+          <a href="#areas"><span translate="no" class="mdi mdi-chevron-right"></span> Energia &amp; Recursos</a>
+          <a href="#areas"><span translate="no" class="mdi mdi-chevron-right"></span> Indústria</a>
+          <a href="#areas"><span translate="no" class="mdi mdi-chevron-right"></span> Transporte &amp; Logística</a>
+          <a href="#areas"><span translate="no" class="mdi mdi-chevron-right"></span> Seg. Informação</a>
+          <a href="#areas"><span translate="no" class="mdi mdi-chevron-right"></span> Aviação Civil</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Contacto</div>
+        <div class="footer-links">
+          <a href="mailto:geral@mai.ao"><span translate="no" class="mdi mdi-email-outline"></span> geral@mai.ao</a>
+          <a href="tel:+244999999999"><span translate="no" class="mdi mdi-phone-outline"></span> +244 999 999 999</a>
+          <a href="#"><span translate="no" class="mdi mdi-map-marker-outline"></span> Luanda, Angola</a>
+        </div>
+        <div class="contact-socials" style="margin-top:20px">
+          <a href="#" class="social-btn"><span translate="no" class="mdi mdi-linkedin"></span></a>
+          <a href="#" class="social-btn"><span translate="no" class="mdi mdi-facebook"></span></a>
+          <a href="#" class="social-btn"><span translate="no" class="mdi mdi-instagram"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 <strong>Mirabilis Alliance Institute</strong>. Todos os direitos reservados.
+      </p>
+      <div class="footer-bottom-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="assets/js/main.js"></script>
+  <div class="gtranslate_wrapper"></div>
+
+  <!-- ═══════ GTRANSLATE ═══════ -->
+  <script>
+    window.gtranslateSettings = {
+      default_language: "pt",
+      languages: ["pt", "en", "fr", "es"],
+      wrapper_selector: ".gtranslate_wrapper",
+      switcher_horizontal_position: "right",
+      switcher_vertical_position: "bottom",
+      float_switcher_open_direction: "top",
+      flag_size: 24,
+      native_language_names: 1,
+      translate_whole_page: 1
+    };
+  </script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+</body>
+
+</html>
