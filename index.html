@@ -20,7 +20,7 @@
     <a href="#sobre">Sobre</a>
     <a href="#areas">Áreas</a>
     <a href="#solucoes">Soluções</a>
-    <a href="#">Contactos</a>
+    <a href="#contacto">Contactos</a>
     <a href="#"
       style="margin-top:20px;background:var(--brand-primary);color:var(--neutral-900);border-radius:3px;font-size:13px;font-weight:700">Inscrever-se</a>
   </div>
@@ -48,7 +48,32 @@
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       </button>
-      <a href="#" class="btn-enroll">Inscrever-se</a>
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn" id="langBtn" aria-label="Idioma" type="button">
+          <span translate="no" class="mdi mdi-web"></span>
+          <span class="lang-current" id="langCurrent" translate="no">PT</span>
+          <span translate="no" class="mdi mdi-chevron-down lang-chevron"></span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <a href="#" class="lang-option active" onclick="switchLang('pt','PT',event)">
+            <span class="lang-flag" translate="no">🇵🇹</span>
+            <span translate="no">Português</span>
+          </a>
+          <a href="#" class="lang-option" onclick="switchLang('en','EN',event)">
+            <span class="lang-flag" translate="no">🇬🇧</span>
+            <span translate="no">English</span>
+          </a>
+          <a href="#" class="lang-option" onclick="switchLang('fr','FR',event)">
+            <span class="lang-flag" translate="no">🇫🇷</span>
+            <span translate="no">Français</span>
+          </a>
+          <a href="#" class="lang-option" onclick="switchLang('es','ES',event)">
+            <span class="lang-flag" translate="no">🇪🇸</span>
+            <span translate="no">Español</span>
+          </a>
+        </div>
+      </div>
+      <a href="#" id="enrollBtn" class="btn-enroll">Inscrever-se</a>
       <button class="btn-hamburger" id="hamburgerBtn" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -108,7 +133,7 @@
               nacional — energia, finanças, saúde e tecnologia.</p>
             <div class="s-ctas">
               <a href="#areas" class="btn-solid">Ver Áreas <span class="arrow-ico">↗</span></a>
-              <a href="#" class="btn-outline">Calendário 2025</a>
+              <a href="#" class="btn-outline">Calendário 2026</a>
             </div>
           </div>
         </div>
@@ -1048,51 +1073,145 @@
       </div>
     </div>
   </footer>
+  <!-- ═══════ ENROLLMENT SHEET ═══════ -->
+  <div class="sheet-backdrop" id="sheetBackdrop"></div>
+  <div class="enroll-sheet" id="enrollSheet" role="dialog" aria-modal="true">
+
+    <div class="sheet-header">
+      <div class="sheet-header-left">
+        <div class="sheet-title">Inscricao em Programa</div>
+        <div class="sheet-subtitle">Seleccione a area e o programa de formacao</div>
+      </div>
+      <button class="sheet-close" id="sheetClose" type="button">
+        <span translate="no" class="mdi mdi-close"></span>
+      </button>
+    </div>
+
+    <div class="sheet-body">
+
+      <div class="sheet-step" id="step1">
+        <div class="sheet-step-label"><span class="sheet-step-num">1</span> Seleccionar Area e Programa</div>
+        <div class="sheet-field-group">
+          <label class="sheet-label">Area de Formacao</label>
+          <div class="sheet-select-wrap">
+            <select class="sheet-select" id="sArea" onchange="onAreaChange()">
+              <option value="" disabled selected>Escolher area...</option>
+              <option value="banca">Banca e Financas</option>
+              <option value="energia">Energia e Recursos Naturais</option>
+              <option value="industria">Industria e Producao</option>
+              <option value="logistica">Transporte e Logistica</option>
+              <option value="ti">Seguranca da Informacao e Tech</option>
+              <option value="aviacao">Aviacao Civil</option>
+            </select>
+            <span translate="no" class="mdi mdi-chevron-down sheet-select-ico"></span>
+          </div>
+        </div>
+        <div class="sheet-field-group" id="programField" style="display:none">
+          <label class="sheet-label">Programa</label>
+          <div class="sheet-select-wrap">
+            <select class="sheet-select" id="sProgram" onchange="onProgramChange()">
+              <option value="" disabled selected>Escolher programa...</option>
+            </select>
+            <span translate="no" class="mdi mdi-chevron-down sheet-select-ico"></span>
+          </div>
+        </div>
+        <div class="prog-info-card" id="progInfoCard" style="display:none">
+          <div class="prog-info-header">
+            <div class="prog-info-name" id="progInfoName"></div>
+            <div class="prog-info-price" id="progInfoPrice"></div>
+          </div>
+          <div class="prog-info-grid">
+            <div class="prog-info-item"><span translate="no" class="mdi mdi-clock-outline"></span>
+              <div>
+                <div class="prog-info-item-label">Duracao</div>
+                <div class="prog-info-item-val" id="progInfoDuration"></div>
+              </div>
+            </div>
+            <div class="prog-info-item"><span translate="no" class="mdi mdi-monitor-outline"></span>
+              <div>
+                <div class="prog-info-item-label">Modalidade</div>
+                <div class="prog-info-item-val" id="progInfoMode"></div>
+              </div>
+            </div>
+            <div class="prog-info-item"><span translate="no" class="mdi mdi-certificate-outline"></span>
+              <div>
+                <div class="prog-info-item-label">Certificacao</div>
+                <div class="prog-info-item-val">Certificado MAI</div>
+              </div>
+            </div>
+            <div class="prog-info-item"><span translate="no" class="mdi mdi-calendar-outline"></span>
+              <div>
+                <div class="prog-info-item-label">Proximo inicio</div>
+                <div class="prog-info-item-val" id="progInfoDate"></div>
+              </div>
+            </div>
+          </div>
+          <div class="prog-info-desc" id="progInfoDesc"></div>
+        </div>
+      </div>
+
+      <div class="sheet-step" id="step2" style="display:none">
+        <div class="sheet-step-label"><span class="sheet-step-num">2</span> Dados Pessoais</div>
+        <div class="sheet-form-grid">
+          <div class="sheet-field-group"><label class="sheet-label">Nome *</label><input class="sheet-input" type="text"
+              id="sName" placeholder="Primeiro nome"></div>
+          <div class="sheet-field-group"><label class="sheet-label">Apelido *</label><input class="sheet-input"
+              type="text" id="sLastname" placeholder="Apelido"></div>
+          <div class="sheet-field-group"><label class="sheet-label">E-mail *</label><input class="sheet-input"
+              type="email" id="sEmail" placeholder="nome@empresa.ao"></div>
+          <div class="sheet-field-group"><label class="sheet-label">WhatsApp *</label><input class="sheet-input"
+              type="tel" id="sPhone" placeholder="+244 9XX XXX XXX"></div>
+          <div class="sheet-field-group sheet-full"><label class="sheet-label">Organizacao</label><input
+              class="sheet-input" type="text" id="sOrg" placeholder="Empresa ou instituicao"></div>
+          <div class="sheet-field-group sheet-full"><label class="sheet-label">Cargo</label><input class="sheet-input"
+              type="text" id="sRole" placeholder="Ex: Director Financeiro"></div>
+        </div>
+      </div>
+
+      <div class="sheet-step" id="step3" style="display:none">
+        <div class="sheet-step-label"><span class="sheet-step-num">3</span> Resumo da Inscricao</div>
+        <div class="sheet-summary" id="sheetSummary"></div>
+        <div class="sheet-privacy">
+          <input type="checkbox" id="sPrivacy">
+          <label for="sPrivacy">Concordo com a <a href="#">Politica de Privacidade</a> e autorizo o contacto para fins
+            formativos.</label>
+        </div>
+      </div>
+
+      <div class="sheet-step sheet-success" id="stepSuccess" style="display:none">
+        <div class="sheet-success-ico"><span translate="no" class="mdi mdi-check-circle-outline"></span></div>
+        <h3 class="sheet-success-title">Inscricao Recebida!</h3>
+        <p class="sheet-success-msg">A sua pre-inscricao foi registada com sucesso. A nossa equipa entrara em contacto
+          em ate 24 horas uteis.</p>
+      </div>
+
+    </div>
+
+    <div class="sheet-footer">
+      <div class="sheet-steps-track">
+        <div class="sheet-step-dot active" id="dot1"></div>
+        <div class="sheet-step-line"></div>
+        <div class="sheet-step-dot" id="dot2"></div>
+        <div class="sheet-step-line"></div>
+        <div class="sheet-step-dot" id="dot3"></div>
+      </div>
+      <div class="sheet-footer-actions">
+        <button class="sheet-btn-back" id="sheetBack" style="display:none" type="button">
+          <span translate="no" class="mdi mdi-arrow-left"></span> Anterior
+        </button>
+        <button class="sheet-btn-next" id="sheetNext" type="button" disabled>
+          Continuar <span translate="no" class="mdi mdi-arrow-right"></span>
+        </button>
+      </div>
+    </div>
+
+  </div>
 
 
   <script src="assets/js/main.js"></script>
 
-  <!-- ═══════ TRANSLATE ═══════ -->
+  <!-- Google Translate -->
   <div id="google_translate_element" style="display:none"></div>
-  <script>
-    function googleTranslateElementInit () {
-      new google.translate.TranslateElement({
-        pageLanguage: 'pt',
-        includedLanguages: 'pt,en,fr,es',
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-
-    function switchLang (langCode, label, e) {
-      e.preventDefault();
-      // Update active state
-      document.querySelectorAll('.lang-option').forEach(function (o) { o.classList.remove('active'); });
-      e.currentTarget.classList.add('active');
-      document.getElementById('langCurrent').textContent = label;
-      document.getElementById('langDropdown').classList.remove('open');
-      document.getElementById('langSwitcher').classList.remove('open');
-
-      // Trigger Google Translate
-      var sel = document.querySelector('.goog-te-combo');
-      if (sel) {
-        sel.value = langCode;
-        sel.dispatchEvent(new Event('change'));
-      }
-    }
-
-    // Toggle dropdown
-    document.getElementById('langBtn').addEventListener('click', function (e) {
-      e.stopPropagation();
-      var sw = document.getElementById('langSwitcher');
-      sw.classList.toggle('open');
-    });
-    document.addEventListener('click', function () {
-      document.getElementById('langSwitcher').classList.remove('open');
-    });
-    document.getElementById('langDropdown').addEventListener('click', function (e) {
-      e.stopPropagation();
-    });
-  </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
   <!-- Hide Google Translate toolbar -->
   <style>
