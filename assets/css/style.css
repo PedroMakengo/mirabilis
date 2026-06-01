@@ -2659,3 +2659,185 @@ button {
     gap: 10px;
   }
 }
+
+/* ═══════════════════════════════════════
+   GTRANSLATE – language switcher
+═══════════════════════════════════════ */
+.gtranslate_wrapper {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 800;
+}
+
+/* Override GTranslate default widget styles to match MAI theme */
+.gt_switcher_wrapper {
+  font-family: 'Poppins', sans-serif !important;
+}
+.gt_switcher {
+  background: var(--bg-2) !important;
+  border: 1px solid var(--border-strong) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24) !important;
+  overflow: hidden !important;
+}
+.gt_switcher a {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  color: var(--text-2) !important;
+  padding: 9px 14px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  transition:
+    background 0.2s,
+    color 0.2s !important;
+}
+.gt_switcher a:hover {
+  background: var(--brand-primary-10) !important;
+  color: var(--brand-primary) !important;
+}
+.gt_switcher a.gt_current_lang {
+  color: var(--brand-primary) !important;
+  background: var(--brand-primary-10) !important;
+  border-bottom: 1px solid var(--brand-primary-40) !important;
+  font-weight: 700 !important;
+}
+/* The float button */
+.gt_float_switcher {
+  background: var(--brand-primary) !important;
+  border-radius: 50% !important;
+  width: 46px !important;
+  height: 46px !important;
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.35) !important;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s !important;
+}
+.gt_float_switcher:hover {
+  transform: scale(1.08) !important;
+  box-shadow: 0 6px 28px rgba(201, 168, 76, 0.5) !important;
+}
+
+/* ═══════════════════════════════════════
+   LANGUAGE SWITCHER (navbar)
+═══════════════════════════════════════ */
+.lang-switcher {
+  position: relative;
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 12px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.82);
+  transition: all 0.28s;
+  white-space: nowrap;
+}
+.nav.scrolled .lang-btn {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text-2);
+}
+.lang-btn:hover,
+.lang-switcher.open .lang-btn {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+  background: var(--brand-primary-10);
+}
+.lang-btn .mdi {
+  font-size: 15px;
+}
+.lang-chevron {
+  font-size: 13px !important;
+  transition: transform 0.28s;
+  margin-left: 1px;
+}
+.lang-switcher.open .lang-chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 150px;
+  background: var(--bg-2);
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.25s var(--ease),
+    transform 0.25s var(--ease),
+    visibility 0.25s;
+  z-index: 999;
+}
+.lang-switcher.open .lang-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-2);
+  transition:
+    background 0.2s,
+    color 0.2s;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+.lang-option:last-child {
+  border-bottom: none;
+}
+.lang-option:hover {
+  background: var(--surface);
+  color: var(--text-1);
+}
+.lang-option.active {
+  color: var(--brand-primary);
+  background: var(--brand-primary-10);
+}
+.lang-option.active::after {
+  content: '✓';
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--brand-primary);
+}
+.lang-flag {
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Mobile – show lang switcher in mobile overlay too */
+@media (max-width: 768px) {
+  .lang-switcher {
+    order: -1;
+  }
+  .lang-dropdown {
+    right: auto;
+    left: 0;
+  }
+}

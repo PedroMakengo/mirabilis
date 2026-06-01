@@ -65,8 +65,7 @@
 
       <!-- Slide 1 -->
       <div class="slide active">
-        <div class="slide-bg"
-          style="background-image:url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1920&q=85&auto=format&fit=crop')">
+        <div class="slide-bg" style="background-image:url('assets/images/slider-1.avif')">
         </div>
         <div class="slide-overlay"></div>
         <div class="slide-vignette"></div>
@@ -95,8 +94,7 @@
 
       <!-- Slide 2 -->
       <div class="slide">
-        <div class="slide-bg"
-          style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=85&auto=format&fit=crop')">
+        <div class="slide-bg" style="background-image:url('assets/images/slider-2.jpg')">
         </div>
         <div class="slide-overlay"></div>
         <div class="slide-vignette"></div>
@@ -122,8 +120,7 @@
 
       <!-- Slide 3 -->
       <div class="slide">
-        <div class="slide-bg"
-          style="background-image:url('https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=1920&q=85&auto=format&fit=crop')">
+        <div class="slide-bg" style="background-image:url('assets/images/slider-3.jpg')">
         </div>
         <div class="slide-overlay"></div>
         <div class="slide-vignette"></div>
@@ -246,8 +243,7 @@
       <!-- Quem Somos – 2 cols -->
       <div class="bento-cell cell-who reveal">
         <div class="cell-img-wrap">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80&auto=format&fit=crop"
-            alt="Equipa MAI" loading="lazy">
+          <img src="assets/images/slider-3.jpg" alt="Equipa MAI" loading="lazy">
           <div class="cell-img-overlay"></div>
           <div class="cell-img-badge">Desde 2004</div>
         </div>
@@ -1059,23 +1055,64 @@
 
 
   <script src="assets/js/main.js"></script>
-  <div class="gtranslate_wrapper"></div>
 
-  <!-- ═══════ GTRANSLATE ═══════ -->
+  <!-- ═══════ TRANSLATE ═══════ -->
+  <div id="google_translate_element" style="display:none"></div>
   <script>
-    window.gtranslateSettings = {
-      default_language: "pt",
-      languages: ["pt", "en", "fr", "es"],
-      wrapper_selector: ".gtranslate_wrapper",
-      switcher_horizontal_position: "right",
-      switcher_vertical_position: "bottom",
-      float_switcher_open_direction: "top",
-      flag_size: 24,
-      native_language_names: 1,
-      translate_whole_page: 1
-    };
+    function googleTranslateElementInit () {
+      new google.translate.TranslateElement({
+        pageLanguage: 'pt',
+        includedLanguages: 'pt,en,fr,es',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+
+    function switchLang (langCode, label, e) {
+      e.preventDefault();
+      // Update active state
+      document.querySelectorAll('.lang-option').forEach(function (o) { o.classList.remove('active'); });
+      e.currentTarget.classList.add('active');
+      document.getElementById('langCurrent').textContent = label;
+      document.getElementById('langDropdown').classList.remove('open');
+      document.getElementById('langSwitcher').classList.remove('open');
+
+      // Trigger Google Translate
+      var sel = document.querySelector('.goog-te-combo');
+      if (sel) {
+        sel.value = langCode;
+        sel.dispatchEvent(new Event('change'));
+      }
+    }
+
+    // Toggle dropdown
+    document.getElementById('langBtn').addEventListener('click', function (e) {
+      e.stopPropagation();
+      var sw = document.getElementById('langSwitcher');
+      sw.classList.toggle('open');
+    });
+    document.addEventListener('click', function () {
+      document.getElementById('langSwitcher').classList.remove('open');
+    });
+    document.getElementById('langDropdown').addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
   </script>
-  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+  <!-- Hide Google Translate toolbar -->
+  <style>
+    .goog-te-banner-frame,
+    .skiptranslate {
+      display: none !important;
+    }
+
+    body {
+      top: 0 !important;
+    }
+
+    .goog-te-gadget {
+      display: none !important;
+    }
+  </style>
 </body>
 
 </html>
