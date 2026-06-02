@@ -1,8 +1,6 @@
-/* ════════════════════════════
-   MAI – main.js
-   ════════════════════════════ */
+/* MAI – main.js */
 
-/* ── THEME ── */
+/* THEME */
 var htmlEl = document.documentElement
 var themeIcon = document.getElementById('themeIcon')
 var moonSVG = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
@@ -14,7 +12,7 @@ document.getElementById('themeToggle').addEventListener('click', function () {
   themeIcon.innerHTML = dark ? sunSVG : moonSVG
 })
 
-/* ── NAV SCROLL ── */
+/* NAV SCROLL */
 var nav = document.getElementById('mainNav')
 window.addEventListener(
   'scroll',
@@ -24,38 +22,36 @@ window.addEventListener(
   { passive: true },
 )
 
-/* ── MOBILE MENU ── */
-var overlay = document.getElementById('mobileOverlay')
+/* MOBILE MENU */
+var mob = document.getElementById('mobileOverlay')
 document.getElementById('hamburgerBtn').addEventListener('click', function () {
-  overlay.classList.add('open')
+  mob.classList.add('open')
 })
 document
   .getElementById('mobileCloseBtn')
   .addEventListener('click', function () {
-    overlay.classList.remove('open')
+    mob.classList.remove('open')
   })
-overlay.querySelectorAll('a').forEach(function (a) {
+mob.querySelectorAll('a').forEach(function (a) {
   a.addEventListener('click', function () {
-    overlay.classList.remove('open')
+    mob.classList.remove('open')
   })
 })
 
-/* ── HERO SLIDER ── */
+/* HERO SLIDER */
 var slides = document.querySelectorAll('.slide')
 var dots = document.querySelectorAll('.s-dot')
 var track = document.getElementById('slidesTrack')
 var cur = 0,
-  total = slides.length
-var timer = null,
+  total = slides.length,
+  timer = null,
   INTERVAL = 6000
-
 function pad(n) {
   return n < 10 ? '0' + n : '' + n
 }
-
 function goTo(n) {
   slides[cur].classList.remove('active')
-  slides[cur].querySelector('.slide-bg').style.transform = 'scale(1.08)'
+  slides[cur].querySelector('.slide-bg').style.transform = 'scale(1.06)'
   dots[cur].classList.remove('active')
   cur = (n + total) % total
   slides[cur].classList.add('active')
@@ -70,7 +66,6 @@ function next() {
 function prev() {
   goTo(cur - 1)
 }
-
 function startAuto() {
   clearInterval(timer)
   timer = setInterval(next, INTERVAL)
@@ -84,7 +79,6 @@ function resetBar() {
     bar.style.width = '100%'
   }, 50)
 }
-
 document.getElementById('nextBtn').addEventListener('click', function () {
   clearInterval(timer)
   next()
@@ -102,7 +96,6 @@ dots.forEach(function (d) {
     startAuto()
   })
 })
-
 var tx = 0
 document.getElementById('heroSlider').addEventListener(
   'touchstart',
@@ -135,45 +128,62 @@ document.addEventListener('keydown', function (e) {
     startAuto()
   }
 })
-
 document.getElementById('cntTotal').textContent = pad(total)
 startAuto()
 resetBar()
 
-/* ── COUNTERS ── */
-var ctrs = document.querySelectorAll('.ctr')
-new IntersectionObserver(
-  function (entries, obs) {
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return
-      ctrs.forEach(function (el) {
-        var t = +el.getAttribute('data-t'),
-          dur = 1800,
-          s = performance.now()
-        ;(function step(now) {
-          var p = Math.min((now - s) / dur, 1),
-            ease = 1 - Math.pow(1 - p, 3)
-          el.textContent = Math.round(t * ease)
-          if (p < 1) requestAnimationFrame(step)
-        })(s)
+/* COUNTERS */
+;(function () {
+  var ctrs = document.querySelectorAll('.ctr')
+  new IntersectionObserver(
+    function (entries, obs) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return
+        ctrs.forEach(function (el) {
+          var t = +el.getAttribute('data-t'),
+            dur = 1800,
+            s = performance.now()
+          ;(function step(now) {
+            var p = Math.min((now - s) / dur, 1),
+              ease = 1 - Math.pow(1 - p, 3)
+            el.textContent = Math.round(t * ease)
+            if (p < 1) requestAnimationFrame(step)
+          })(s)
+        })
+        obs.disconnect()
       })
-      obs.disconnect()
-    })
-  },
-  { threshold: 0.4 },
-).observe(document.querySelector('.stats-bar'))
+    },
+    { threshold: 0.4 },
+  ).observe(document.querySelector('.stats-bar'))
+})()
 
-/* ── SCROLL REVEAL ── */
-new IntersectionObserver(
-  function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) e.target.classList.add('in')
-    })
-  },
-  { threshold: 0.1, rootMargin: '0px 0px -36px 0px' },
-).observe = (function (orig) {
-  return orig
-})(IntersectionObserver.prototype.observe)
+/* IMPACTO COUNTERS */
+;(function () {
+  var ctrs = document.querySelectorAll('.ctr2')
+  if (!ctrs.length) return
+  new IntersectionObserver(
+    function (entries, obs) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return
+        ctrs.forEach(function (el) {
+          var t = +el.getAttribute('data-t'),
+            dur = 1800,
+            s = performance.now()
+          ;(function step(now) {
+            var p = Math.min((now - s) / dur, 1),
+              ease = 1 - Math.pow(1 - p, 3)
+            el.textContent = Math.round(t * ease)
+            if (p < 1) requestAnimationFrame(step)
+          })(s)
+        })
+        obs.disconnect()
+      })
+    },
+    { threshold: 0.3 },
+  ).observe(document.querySelector('.impacto') || document.body)
+})()
+
+/* SCROLL REVEAL */
 ;(function () {
   var io = new IntersectionObserver(
     function (entries) {
@@ -181,85 +191,52 @@ new IntersectionObserver(
         if (e.isIntersecting) e.target.classList.add('in')
       })
     },
-    { threshold: 0.1, rootMargin: '0px 0px -36px 0px' },
+    { threshold: 0.1, rootMargin: '0px 0px -32px 0px' },
   )
   document.querySelectorAll('.reveal').forEach(function (el) {
     io.observe(el)
   })
 })()
 
-/* ── AREAS TABS ── */
-var areaTabs = document.querySelectorAll('.area-tab')
-var areaPanels = document.querySelectorAll('.area-panel')
-areaTabs.forEach(function (tab) {
-  tab.addEventListener('click', function () {
-    areaTabs.forEach(function (t) {
-      t.classList.remove('active')
-    })
-    areaPanels.forEach(function (p) {
-      p.classList.remove('active')
-    })
-    this.classList.add('active')
-    var idx = +this.getAttribute('data-area')
-    areaPanels[idx].classList.add('active')
-  })
-})
-
-/* ── IMPACTO COUNTERS (ctr2) ── */
-new IntersectionObserver(
-  function (entries, obs) {
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return
-      document.querySelectorAll('.ctr2').forEach(function (el) {
-        var t = +el.getAttribute('data-t'),
-          dur = 1800,
-          s = performance.now()
-        ;(function step(now) {
-          var p = Math.min((now - s) / dur, 1),
-            ease = 1 - Math.pow(1 - p, 3)
-          el.textContent = Math.round(t * ease)
-          if (p < 1) requestAnimationFrame(step)
-        })(s)
-      })
-      obs.disconnect()
-    })
-  },
-  { threshold: 0.4 },
-).observe(document.querySelector('.impacto-banner') || document.body)
-
-/* ── CONTACT FORM MOCK SUBMIT ── */
-var formSubmitBtn = document.getElementById('formSubmit')
-if (formSubmitBtn) {
-  formSubmitBtn.addEventListener('click', function () {
-    var name = document.getElementById('fName').value.trim()
-    var email = document.getElementById('fEmail').value.trim()
-    var privacy = document.getElementById('fPrivacy').checked
-    if (!name || !email) {
-      document.getElementById('fName').style.borderColor = name
-        ? ''
-        : 'rgba(220,60,60,0.7)'
-      document.getElementById('fEmail').style.borderColor = email
-        ? ''
-        : 'rgba(220,60,60,0.7)'
+/* CONTACT FORM */
+;(function () {
+  var btn = document.getElementById('formSubmit')
+  if (!btn) return
+  btn.addEventListener('click', function () {
+    var n = document.getElementById('fName').value.trim()
+    var em = document.getElementById('fEmail').value.trim()
+    var priv = document.getElementById('fPrivacy').checked
+    if (!n) {
+      document.getElementById('fName').style.borderBottomColor =
+        'rgba(200,50,50,.7)'
       return
     }
-    if (!privacy) {
+    if (!em) {
+      document.getElementById('fEmail').style.borderBottomColor =
+        'rgba(200,50,50,.7)'
+      return
+    }
+    if (!priv) {
       document.getElementById('fPrivacy').style.outline =
-        '2px solid rgba(220,60,60,0.7)'
+        '2px solid rgba(200,50,50,.7)'
       return
     }
     document.getElementById('contactForm').style.display = 'none'
     document.getElementById('formSuccess').classList.add('show')
   })
-}
+  ;['fName', 'fEmail'].forEach(function (id) {
+    var el = document.getElementById(id)
+    if (el)
+      el.addEventListener('input', function () {
+        this.style.borderBottomColor = ''
+      })
+  })
+})()
 
-/* ══════════════════════════════════════
-   LANGUAGE SWITCHER
-══════════════════════════════════════ */
-
+/* LANG SWITCHER */
 function switchLang(code, label, e) {
   e.preventDefault()
-  document.querySelectorAll('.lang-option').forEach(function (o) {
+  document.querySelectorAll('.lang-opt').forEach(function (o) {
     o.classList.remove('active')
   })
   e.currentTarget.classList.add('active')
@@ -271,10 +248,6 @@ function switchLang(code, label, e) {
     sel.dispatchEvent(new Event('change'))
   }
 }
-
-/* ══════════════════════════════════════
-   GOOGLE TRANSLATE INIT
-══════════════════════════════════════ */
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     {
@@ -286,9 +259,7 @@ function googleTranslateElementInit() {
   )
 }
 
-/* ══════════════════════════════════════
-   ENROLLMENT SHEET
-══════════════════════════════════════ */
+/* SHEET */
 var PROGRAMS = {
   banca: [
     {
@@ -296,15 +267,15 @@ var PROGRAMS = {
       duration: '40h',
       mode: 'Presencial / Online',
       price: '150.000 Kz',
-      date: 'Julho 2025',
-      desc: 'Enquadramento regulatório, funções de supervisão e conformidade no sector bancário angolano.',
+      date: 'Jul 2025',
+      desc: 'Enquadramento regulatório e funções de supervisão no sector bancário angolano.',
     },
     {
       name: 'Gestão de Risco',
       duration: '32h',
       mode: 'Presencial',
       price: '120.000 Kz',
-      date: 'Agosto 2025',
+      date: 'Ago 2025',
       desc: 'Identificação, avaliação e mitigação de riscos financeiros e operacionais.',
     },
     {
@@ -312,7 +283,7 @@ var PROGRAMS = {
       duration: '24h',
       mode: 'Online Live',
       price: '90.000 Kz',
-      date: 'Julho 2025',
+      date: 'Jul 2025',
       desc: 'Prevenção de branqueamento de capitais e conformidade regulatória.',
     },
     {
@@ -320,7 +291,7 @@ var PROGRAMS = {
       duration: '32h',
       mode: 'Presencial',
       price: '130.000 Kz',
-      date: 'Setembro 2025',
+      date: 'Set 2025',
       desc: 'Estruturas de governança, boas práticas e responsabilidade corporativa.',
     },
     {
@@ -328,7 +299,7 @@ var PROGRAMS = {
       duration: '40h',
       mode: 'Presencial / Online',
       price: '160.000 Kz',
-      date: 'Outubro 2025',
+      date: 'Out 2025',
       desc: 'Tecnologias emergentes, fintechs e inovação digital no sector financeiro.',
     },
   ],
@@ -338,7 +309,7 @@ var PROGRAMS = {
       duration: '40h',
       mode: 'Presencial',
       price: '140.000 Kz',
-      date: 'Julho 2025',
+      date: 'Jul 2025',
       desc: 'Fontes renováveis de energia, tecnologias e mercado em Angola.',
     },
     {
@@ -346,7 +317,7 @@ var PROGRAMS = {
       duration: '32h',
       mode: 'Presencial / Prático',
       price: '130.000 Kz',
-      date: 'Agosto 2025',
+      date: 'Ago 2025',
       desc: 'Projecto, instalação e manutenção de sistemas solares fotovoltaicos.',
     },
     {
@@ -354,7 +325,7 @@ var PROGRAMS = {
       duration: '24h',
       mode: 'Online Live',
       price: '95.000 Kz',
-      date: 'Setembro 2025',
+      date: 'Set 2025',
       desc: 'Critérios ESG, relatórios de sustentabilidade e conformidade ambiental.',
     },
     {
@@ -362,7 +333,7 @@ var PROGRAMS = {
       duration: '80h',
       mode: 'Presencial',
       price: '280.000 Kz',
-      date: 'Outubro 2025',
+      date: 'Out 2025',
       desc: 'Operações upstream/downstream, regulação e gestão do sector petrolífero.',
     },
   ],
@@ -372,7 +343,7 @@ var PROGRAMS = {
       duration: '40h',
       mode: 'Presencial / Prático',
       price: '130.000 Kz',
-      date: 'Julho 2025',
+      date: 'Jul 2025',
       desc: 'Princípios lean, eliminação de desperdícios e melhoria contínua.',
     },
     {
@@ -380,7 +351,7 @@ var PROGRAMS = {
       duration: '32h',
       mode: 'Presencial',
       price: '120.000 Kz',
-      date: 'Agosto 2025',
+      date: 'Ago 2025',
       desc: 'Sistemas de gestão da qualidade, ferramentas e indicadores.',
     },
     {
@@ -388,7 +359,7 @@ var PROGRAMS = {
       duration: '24h',
       mode: 'Online Live',
       price: '90.000 Kz',
-      date: 'Setembro 2025',
+      date: 'Set 2025',
       desc: 'ISO 9001, ISO 14001, ISO 45001 — implementação e auditoria.',
     },
     {
@@ -396,8 +367,8 @@ var PROGRAMS = {
       duration: '48h',
       mode: 'Presencial / Prático',
       price: '175.000 Kz',
-      date: 'Outubro 2025',
-      desc: 'Sistemas de automação, PLCs, SCADA e industria 4.0.',
+      date: 'Out 2025',
+      desc: 'Sistemas de automação, PLCs, SCADA e indústria 4.0.',
     },
   ],
   logistica: [
@@ -406,7 +377,7 @@ var PROGRAMS = {
       duration: '40h',
       mode: 'Presencial',
       price: '135.000 Kz',
-      date: 'Julho 2025',
+      date: 'Jul 2025',
       desc: 'Planeamento, execução e controlo de operações logísticas integradas.',
     },
     {
@@ -414,7 +385,7 @@ var PROGRAMS = {
       duration: '48h',
       mode: 'Presencial / Online',
       price: '160.000 Kz',
-      date: 'Agosto 2025',
+      date: 'Ago 2025',
       desc: 'Gestão estratégica da cadeia de abastecimento e optimização.',
     },
     {
@@ -422,7 +393,7 @@ var PROGRAMS = {
       duration: '40h',
       mode: 'Presencial',
       price: '145.000 Kz',
-      date: 'Setembro 2025',
+      date: 'Set 2025',
       desc: 'Operações portuárias, regulação marítima e gestão de terminais.',
     },
     {
@@ -430,7 +401,7 @@ var PROGRAMS = {
       duration: '24h',
       mode: 'Online Live',
       price: '85.000 Kz',
-      date: 'Outubro 2025',
+      date: 'Out 2025',
       desc: 'Procedimentos aduaneiros, documentação e comércio internacional.',
     },
   ],
@@ -440,7 +411,7 @@ var PROGRAMS = {
       duration: '48h',
       mode: 'Presencial / Online',
       price: '175.000 Kz',
-      date: 'Julho 2025',
+      date: 'Jul 2025',
       desc: 'Ameaças cibernéticas, defesa de sistemas e resposta a incidentes.',
     },
     {
@@ -448,7 +419,7 @@ var PROGRAMS = {
       duration: '32h',
       mode: 'Presencial',
       price: '130.000 Kz',
-      date: 'Agosto 2025',
+      date: 'Ago 2025',
       desc: 'Frameworks COBIT e ITIL, alinhamento estratégico de TI.',
     },
     {
@@ -456,7 +427,7 @@ var PROGRAMS = {
       duration: '24h',
       mode: 'Online Live',
       price: '90.000 Kz',
-      date: 'Setembro 2025',
+      date: 'Set 2025',
       desc: 'RGPD, Lei angolana de protecção de dados e boas práticas.',
     },
     {
@@ -464,7 +435,7 @@ var PROGRAMS = {
       duration: '40h',
       mode: 'Presencial / Online',
       price: '165.000 Kz',
-      date: 'Outubro 2025',
+      date: 'Out 2025',
       desc: 'Aplicações práticas de IA e Machine Learning no contexto empresarial.',
     },
   ],
@@ -474,7 +445,7 @@ var PROGRAMS = {
       duration: '40h',
       mode: 'Presencial',
       price: '155.000 Kz',
-      date: 'Julho 2025',
+      date: 'Jul 2025',
       desc: 'SMS, gestão de riscos operacionais e cultura de segurança na aviação.',
     },
     {
@@ -482,7 +453,7 @@ var PROGRAMS = {
       duration: '32h',
       mode: 'Presencial',
       price: '140.000 Kz',
-      date: 'Agosto 2025',
+      date: 'Ago 2025',
       desc: 'Padrões ICAO/IATA de segurança aeroportuária e controlo de acesso.',
     },
     {
@@ -490,7 +461,7 @@ var PROGRAMS = {
       duration: '48h',
       mode: 'Presencial / Online',
       price: '170.000 Kz',
-      date: 'Setembro 2025',
+      date: 'Set 2025',
       desc: 'Operações aeroportuárias, coordenação e gestão de infra-estruturas.',
     },
     {
@@ -498,92 +469,91 @@ var PROGRAMS = {
       duration: '40h',
       mode: 'Presencial / Prático',
       price: '145.000 Kz',
-      date: 'Outubro 2025',
+      date: 'Out 2025',
       desc: 'Serviços de solo, procedimentos de rampa e assistência em terra.',
     },
   ],
 }
 
-var curStep = 1
-var selectedProg = null
+var curStep = 1,
+  selProg = null
 
 function onAreaChange() {
   var area = document.getElementById('sArea').value
   var pf = document.getElementById('programField')
   var sel = document.getElementById('sProgram')
-  var info = document.getElementById('progInfoCard')
   sel.innerHTML =
     '<option value="" disabled selected>Escolher programa…</option>'
   if (PROGRAMS[area]) {
     PROGRAMS[area].forEach(function (p, i) {
-      var opt = document.createElement('option')
-      opt.value = i
-      opt.textContent = p.name
-      sel.appendChild(opt)
+      var o = document.createElement('option')
+      o.value = i
+      o.textContent = p.name
+      sel.appendChild(o)
     })
     pf.style.display = 'block'
   }
-  info.style.display = 'none'
-  selectedProg = null
-  updateNextBtn()
+  document.getElementById('progInfoCard').style.display = 'none'
+  selProg = null
+  updNext()
 }
 
 function onProgramChange() {
   var area = document.getElementById('sArea').value
   var idx = document.getElementById('sProgram').value
   if (area && idx !== '') {
-    var p = PROGRAMS[area][idx]
-    selectedProg = p
-    document.getElementById('progInfoName').textContent = p.name
-    document.getElementById('progInfoPrice').textContent = p.price
-    document.getElementById('progInfoDuration').textContent = p.duration
-    document.getElementById('progInfoMode').textContent = p.mode
-    document.getElementById('progInfoDate').textContent = p.date
-    document.getElementById('progInfoDesc').textContent = p.desc
+    selProg = PROGRAMS[area][idx]
+    document.getElementById('progInfoName').textContent = selProg.name
+    document.getElementById('progInfoPrice').textContent = selProg.price
+    document.getElementById('progInfoDuration').textContent = selProg.duration
+    document.getElementById('progInfoMode').textContent = selProg.mode
+    document.getElementById('progInfoDate').textContent = selProg.date
+    document.getElementById('progInfoDesc').textContent = selProg.desc
     document.getElementById('progInfoCard').style.display = 'block'
   }
-  updateNextBtn()
+  updNext()
 }
 
-function updateNextBtn() {
+function updNext() {
   var btn = document.getElementById('sheetNext')
-  if (curStep === 1) btn.disabled = !selectedProg
+  if (curStep === 1) btn.disabled = !selProg
   if (curStep === 2) {
     var n = document.getElementById('sName').value.trim()
-    var e = document.getElementById('sEmail').value.trim()
+    var em = document.getElementById('sEmail').value.trim()
     var ph = document.getElementById('sPhone').value.trim()
-    btn.disabled = !(n && e && ph)
+    btn.disabled = !(n && em && ph)
   }
   if (curStep === 3) btn.disabled = false
 }
 
-function goToStep(step) {
-  ;[1, 2, 3].forEach(function (s) {
-    var el = document.getElementById('step' + s)
-    if (el) el.style.display = s === step ? 'block' : 'none'
-    var dot = document.getElementById('dot' + s)
-    if (dot) {
-      dot.classList.toggle('active', s === step)
-      dot.classList.toggle('done', s < step)
+function goStep(s) {
+  ;[1, 2, 3].forEach(function (x) {
+    var el = document.getElementById('step' + x)
+    if (el) el.style.display = x === s ? 'block' : 'none'
+    var d = document.getElementById('dot' + x)
+    if (d) {
+      d.classList.toggle('active', x === s)
+      d.classList.toggle('done', x < s)
     }
   })
-  curStep = step
+  curStep = s
   var back = document.getElementById('sheetBack')
   var next = document.getElementById('sheetNext')
-  back.style.display = step > 1 ? 'flex' : 'none'
-  if (step === 3) {
-    next.innerHTML =
-      'Confirmar Inscrição <span translate="no" class="mdi mdi-check"></span>'
-  } else {
-    next.innerHTML =
-      'Continuar <span translate="no" class="mdi mdi-arrow-right"></span>'
+  if (back) back.style.display = s > 1 ? 'flex' : 'none'
+  if (next) {
+    if (s === 3)
+      next.innerHTML =
+        'Confirmar <span translate="no" class="mdi mdi-check"></span>'
+    else
+      next.innerHTML =
+        'Continuar <span translate="no" class="mdi mdi-arrow-right"></span>'
   }
-  updateNextBtn()
-  buildSummary()
+  updNext()
+  if (s === 3) buildSummary()
 }
 
 function buildSummary() {
-  if (curStep !== 3 || !selectedProg) return
+  if (!selProg) return
   var n = document.getElementById('sName').value.trim()
   var ln = document.getElementById('sLastname').value.trim()
   var em = document.getElementById('sEmail').value.trim()
@@ -591,16 +561,16 @@ function buildSummary() {
   var org = document.getElementById('sOrg').value.trim()
   document.getElementById('sheetSummary').innerHTML =
     '<strong>Programa:</strong> ' +
-    selectedProg.name +
+    selProg.name +
     '<br>' +
     '<strong>Duração:</strong> ' +
-    selectedProg.duration +
+    selProg.duration +
     '<br>' +
     '<strong>Modalidade:</strong> ' +
-    selectedProg.mode +
+    selProg.mode +
     '<br>' +
     '<strong>Início:</strong> ' +
-    selectedProg.date +
+    selProg.date +
     '<br>' +
     '<strong>Nome:</strong> ' +
     n +
@@ -613,93 +583,104 @@ function buildSummary() {
     '<strong>Telefone:</strong> ' +
     ph +
     (org ? '<br><strong>Organização:</strong> ' + org : '') +
-    '<span class="summary-price">' +
-    selectedProg.price +
+    '<span class="s-price">' +
+    selProg.price +
     '</span>'
 }
 
-// Open/close sheet
 function openSheet() {
-  var sheet = document.getElementById('enrollSheet')
-  var backdrop = document.getElementById('sheetBackdrop')
-  if (!sheet || !backdrop) return
-  sheet.classList.add('open')
-  backdrop.classList.add('open')
+  document.getElementById('enrollSheet').classList.add('open')
+  document.getElementById('sheetBackdrop').classList.add('open')
   document.body.style.overflow = 'hidden'
-  goToStep(1)
+  curStep = 1
+  selProg = null
+  ;[1, 2, 3].forEach(function (x) {
+    var el = document.getElementById('step' + x)
+    if (el) el.style.display = x === 1 ? 'block' : 'none'
+  })
+  document.getElementById('stepSuccess').style.display = 'none'
+  document.getElementById('sheetBack').style.display = 'none'
+  document.getElementById('sheetNext').style.display = 'flex'
+  document.getElementById('sheetNext').innerHTML =
+    'Continuar <span translate="no" class="mdi mdi-arrow-right"></span>'
+  document.getElementById('sheetNext').disabled = true
+  document.getElementById('sArea').value = ''
+  document.getElementById('programField').style.display = 'none'
+  document.getElementById('progInfoCard').style.display = 'none'
+  ;[1, 2, 3].forEach(function (x) {
+    var d = document.getElementById('dot' + x)
+    if (d) {
+      d.classList.toggle('active', x === 1)
+      d.classList.remove('done')
+    }
+  })
 }
 function closeSheet() {
-  var sheet = document.getElementById('enrollSheet')
-  var backdrop = document.getElementById('sheetBackdrop')
-  if (!sheet || !backdrop) return
-  sheet.classList.remove('open')
-  backdrop.classList.remove('open')
+  document.getElementById('enrollSheet').classList.remove('open')
+  document.getElementById('sheetBackdrop').classList.remove('open')
   document.body.style.overflow = ''
 }
 
-// Boot everything once DOM is fully ready
 document.addEventListener('DOMContentLoaded', function () {
-  // ── Enroll button ──
-  var enrollBtn = document.getElementById('enrollBtn')
-  if (enrollBtn) {
-    enrollBtn.addEventListener('click', function (e) {
+  var eb = document.getElementById('enrollBtn')
+  if (eb)
+    eb.addEventListener('click', function (e) {
       e.preventDefault()
       openSheet()
     })
-  }
-
-  // ── Sheet close / backdrop ──
-  var sheetClose = document.getElementById('sheetClose')
-  var sheetBackdrop = document.getElementById('sheetBackdrop')
-  var sheetNext = document.getElementById('sheetNext')
-  var sheetBack = document.getElementById('sheetBack')
-
-  if (sheetClose) sheetClose.addEventListener('click', closeSheet)
-  if (sheetBackdrop) sheetBackdrop.addEventListener('click', closeSheet)
-
+  var eb2 = document.getElementById('enrollBtn2')
+  if (eb2)
+    eb2.addEventListener('click', function (e) {
+      e.preventDefault()
+      openSheet()
+    })
+  var sc = document.getElementById('sheetClose')
+  if (sc) sc.addEventListener('click', closeSheet)
+  var bd = document.getElementById('sheetBackdrop')
+  if (bd) bd.addEventListener('click', closeSheet)
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeSheet()
   })
 
-  // ── Next button ──
-  if (sheetNext) {
-    sheetNext.addEventListener('click', function () {
-      if (curStep === 1 && selectedProg) {
-        goToStep(2)
-      } else if (curStep === 2) {
+  var sn = document.getElementById('sheetNext')
+  if (sn)
+    sn.addEventListener('click', function () {
+      if (curStep === 1 && selProg) goStep(2)
+      else if (curStep === 2) {
         var n = document.getElementById('sName').value.trim()
         var em = document.getElementById('sEmail').value.trim()
         var ph = document.getElementById('sPhone').value.trim()
-        if (!n || !em || !ph) {
-          if (!n)
-            document.getElementById('sName').style.borderColor =
-              'rgba(220,60,60,.7)'
-          if (!em)
-            document.getElementById('sEmail').style.borderColor =
-              'rgba(220,60,60,.7)'
-          if (!ph)
-            document.getElementById('sPhone').style.borderColor =
-              'rgba(220,60,60,.7)'
+        if (!n) {
+          document.getElementById('sName').style.borderBottomColor =
+            'rgba(200,50,50,.7)'
           return
         }
-        goToStep(3)
+        if (!em) {
+          document.getElementById('sEmail').style.borderBottomColor =
+            'rgba(200,50,50,.7)'
+          return
+        }
+        if (!ph) {
+          document.getElementById('sPhone').style.borderBottomColor =
+            'rgba(200,50,50,.7)'
+          return
+        }
+        goStep(3)
       } else if (curStep === 3) {
         var priv = document.getElementById('sPrivacy')
         if (!priv.checked) {
-          priv.style.outline = '2px solid rgba(220,60,60,.7)'
+          priv.style.outline = '2px solid rgba(200,50,50,.7)'
           return
         }
-        // Show success state
-        ;[1, 2, 3].forEach(function (s) {
-          var el = document.getElementById('step' + s)
+        ;[1, 2, 3].forEach(function (x) {
+          var el = document.getElementById('step' + x)
           if (el) el.style.display = 'none'
         })
-        var success = document.getElementById('stepSuccess')
-        if (success) success.style.display = 'flex'
-        if (sheetBack) sheetBack.style.display = 'none'
-        sheetNext.style.display = 'none'
-        ;[1, 2, 3].forEach(function (s) {
-          var d = document.getElementById('dot' + s)
+        document.getElementById('stepSuccess').style.display = 'flex'
+        document.getElementById('sheetBack').style.display = 'none'
+        document.getElementById('sheetNext').style.display = 'none'
+        ;[1, 2, 3].forEach(function (x) {
+          var d = document.getElementById('dot' + x)
           if (d) {
             d.classList.remove('active')
             d.classList.add('done')
@@ -707,39 +688,34 @@ document.addEventListener('DOMContentLoaded', function () {
         })
       }
     })
-  }
 
-  // ── Back button ──
-  if (sheetBack) {
-    sheetBack.addEventListener('click', function () {
-      if (curStep > 1) goToStep(curStep - 1)
+  var sb = document.getElementById('sheetBack')
+  if (sb)
+    sb.addEventListener('click', function () {
+      if (curStep > 1) goStep(curStep - 1)
     })
-  }
-
-  // ── Live validation on step 2 fields ──
   ;['sName', 'sEmail', 'sPhone'].forEach(function (id) {
     var el = document.getElementById(id)
-    if (el) {
+    if (el)
       el.addEventListener('input', function () {
-        this.style.borderColor = ''
-        updateNextBtn()
+        this.style.borderBottomColor = ''
+        updNext()
       })
-    }
   })
 
-  // ── Lang switcher (also needs DOM) ──
-  var sw = document.getElementById('langSwitcher')
-  var btn = document.getElementById('langBtn')
-  var dd = document.getElementById('langDropdown')
-  if (sw && btn && dd) {
-    btn.addEventListener('click', function (e) {
+  /* Lang switcher */
+  var lsw = document.getElementById('langSwitcher')
+  var lbtn = document.getElementById('langBtn')
+  var ldd = document.getElementById('langDropdown')
+  if (lsw && lbtn && ldd) {
+    lbtn.addEventListener('click', function (e) {
       e.stopPropagation()
-      sw.classList.toggle('open')
+      lsw.classList.toggle('open')
     })
     document.addEventListener('click', function (e) {
-      if (!sw.contains(e.target)) sw.classList.remove('open')
+      if (!lsw.contains(e.target)) lsw.classList.remove('open')
     })
-    dd.addEventListener('click', function (e) {
+    ldd.addEventListener('click', function (e) {
       e.stopPropagation()
     })
   }
